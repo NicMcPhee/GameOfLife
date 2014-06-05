@@ -8,12 +8,12 @@ class World
     @living_cells.empty?
   end
   
-  def set_living_at(x, y)
-    @living_cells.push([x, y])
+  def set_living_at(location)
+    @living_cells.push(location)
   end
   
-  def alive_at?(x, y)
-    @living_cells.include?([x, y])
+  def alive_at?(location)
+    @living_cells.include?(location)
   end
 
 end
