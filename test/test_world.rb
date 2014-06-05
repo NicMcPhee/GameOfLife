@@ -1,25 +1,29 @@
 require "test/unit"
-# require "shoulda"
 
 require_relative "../lib/GameOfLife/world"
 
 class TestWorld < Test::Unit::TestCase
-#  context "creating an new world" do
-#    should "be empty" do
-#      world = World.new
-#      assert_equal 0, world.living_cells.count
-#    end
-#  end
+  
+  def setup
+    @world = World.new
+  end
 
   def test_a_new_world_is_empty
-    world = World.new
-    assert_equal 0, world.living_cells.count
+    assert @world.empty?
+  end
+  
+  def test_a_new_world_does_not_have_a_cell
+    assert (not @world.alive_at?(1, 1))
   end
   
   def test_a_cell_can_be_added_to_the_world
-    world = World.new
-    world.set_living_at(1, 1)
-    assert_equal 1, world.living_cells.count
+    @world.set_living_at(1, 1)
+    assert @world.alive_at?(1, 1)
+  end
+  
+  def test_after_adding_a_cell_the_world_is_not_empty
+    @world.set_living_at(1, 1)
+    assert (not @world.empty?)
   end
 
 end
