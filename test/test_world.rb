@@ -15,7 +15,8 @@ class TestWorld < Test::Unit::TestCase
   end
   
   def test_an_empty_world_stays_empty_after_a_tick
-    next_world = @world.tick
+    world = World.empty
+    next_world = world.tick
     assert next_world.empty?
   end
   

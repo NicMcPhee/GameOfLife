@@ -4,6 +4,10 @@ class World
     @living_cells = []
   end
   
+  def self.empty
+    return World.new
+  end
+  
   def empty?
     @living_cells.empty?
   end
