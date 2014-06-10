@@ -1,4 +1,5 @@
 require "test/unit"
+require "rspec/mocks/standalone"
 
 require_relative "../lib/GameOfLife/world"
 require_relative "../lib/GameOfLife/location"
@@ -7,7 +8,7 @@ class TestWorld < Test::Unit::TestCase
   
   def setup
     @empty_world = World.empty
-    @location = Location.new(1, 1)
+    @location = double(:location_of_cell)
   end
 
   def test_an_empty_world_is_empty
