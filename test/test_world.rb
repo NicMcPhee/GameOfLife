@@ -14,6 +14,11 @@ class TestWorld < Test::Unit::TestCase
     assert @world.empty?
   end
   
+  def test_an_empty_world_stays_empty_after_a_tick
+    next_world = @world.tick
+    assert next_world.empty?
+  end
+  
   def test_a_new_world_does_not_have_a_cell
     assert (not @world.alive_at?(@location))
   end

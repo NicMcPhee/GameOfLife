@@ -8,6 +8,10 @@ class World
     @living_cells.empty?
   end
   
+  def tick
+    return self
+  end
+  
   def set_living_at(location)
     @living_cells.push(location)
   end
